@@ -1,0 +1,34 @@
+
+@{
+  Layout = "_Layout";
+}
+<div class="container">
+  @model Animal_Shelter.Models.Animal
+
+  <h2>Edit</h2>
+
+  <h4>Edit this task: @Html.DisplayFor(model => model.Name)</h4>
+
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.AnimalId)
+
+    @Html.LabelFor(model => model.Type)
+    @Html.TextBoxFor(model => model.Type,
+    new {@required="required"})
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name,
+    new {@required="required"})
+    @Html.LabelFor(model => model.Gender)
+    @Html.TextBoxFor(model => model.Gender,
+    new {@required="required"})
+    @Html.LabelFor(model => model.Date)
+    @Html.TextBoxFor(model => model.Date,
+    new {@type = "date",required="required"})    
+    @Html.LabelFor(model => model.Breed)    
+    @Html.TextBoxFor(model => model.Breed)
+
+    <input type="submit" value="Save" />
+  }
+  <p>@Html.ActionLink("Back to list", "Index")</p>
+</div>
